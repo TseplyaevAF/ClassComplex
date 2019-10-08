@@ -9,14 +9,21 @@ using namespace std;
 int main()
 {
 	setlocale(0, "RUS");
-	Complex a(2, 0);
+	Complex a(2, 5);
 	Complex b(3, -1);
 
-	Complex c = a.plus(b);
+	Complex c = a + b;
 	cout << "Результат сложения:";
 	c.display();
-			c = a.mul(b);
+	c = a * b;
 	cout << "Результат умножения:";
+	c.display();
+
+	c = a - b;
+	cout << "Результат вычитания:";
+	c.display();
+	c = a / b;
+	cout << "Результат деления:";
 	c.display();
 
 	return 0;

@@ -17,7 +17,7 @@ Complex::Complex(float r, float i)
 }
 
 //сложение
-	Complex Complex::plus(const Complex& b) {
+	Complex Complex::operator + (const Complex& b) {
 	Complex result;
 	result.im = this->im + b.im;
 	result.re = this->re + b.re;
@@ -25,10 +25,26 @@ Complex::Complex(float r, float i)
 }
 
 //умножение
-	Complex Complex::mul(const Complex& b) {
+	Complex Complex::operator - (const Complex& b) {
 	Complex result;
-	result.re = this->re * b.re - this->im * b.im;
-	result.im = b.im * this->re - this->im * b.re;
+	result.im = this->im - b.im;
+	result.re = this->re - b.re;
+	return result;
+}
+
+//умножение
+	Complex Complex::operator * (const Complex& b) {
+	Complex result;
+	result.re = re * b.re - im * b.im;
+	result.im = b.im * re + im * b.re;
+	return result;
+}
+
+//деление
+	Complex Complex::operator / (const Complex& b) {
+	Complex result;
+	result.re = (re * b.re + im * b.im) / (b.re*b.re + b.im * b.im);
+	result.im = (b.re * im - re * b.im) / (b.re * b.re + b.im * b.im);
 	return result;
 }
 

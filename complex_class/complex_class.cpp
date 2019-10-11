@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
 	double x = 4;
+
 	setlocale(0, "RUS");
 	Complex a(2, 5);
 	Complex b(3, -1);
@@ -31,10 +32,16 @@ int main()
 			cout << "Неправильный аргумент";
 	}
 
-	c = a + x;
-	c = a - x;
-	c = a * x;
-	c = a / x;
+	c = a + x;//сложение c вещественным
+	c = a - x;//вычитание из вещественного
+	c = a * x;//умножение на вещественное
+	c = a / x;// деление на вещественное
+
+	double r = a.moduleComplex();//вычислить модуль комплексного числа
+
+	double arg = a.argumentComplex();//найти аргумент комплексного числа
+
+	string str = b.toString();//число в строку
 
 	return 0;
 }

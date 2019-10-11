@@ -52,7 +52,7 @@ Complex::Complex(float r, float i)
 }
 
 	//сложение c вещественным числом
-	Complex Complex::operator + (double b) {
+	Complex Complex::operator + (double b) const {
 		Complex result;
 		result.re = re + b;
 		result.im = im;
@@ -60,7 +60,7 @@ Complex::Complex(float r, float i)
 	}
 
 	//вычитание из вещественного числа
-	Complex Complex::operator - (double b) {
+	Complex Complex::operator - (double b) const {
 		Complex result;
 		result.re = re - b;
 		result.im = im;
@@ -68,7 +68,7 @@ Complex::Complex(float r, float i)
 	}
 
 	//умножение на вещественное число
-	Complex Complex::operator * (double b) {
+	Complex Complex::operator * (double b) const {
 		Complex c;
 		c.re = re * b;
 		c.im = im * b;
@@ -76,16 +76,36 @@ Complex::Complex(float r, float i)
 	}
 
 	//деление на вещественное число
-	Complex Complex::operator / (double b) {
+	Complex Complex::operator / (double b) const {
 		Complex c;
 		c.re = (re * b) / (b * b);
 		c.im = (b * im) / (b * b);
 		return c;
 	}
 
-//Вывод результата
-void Complex::display() {
+//Вывод в консоль
+void Complex::display() const {
 	if (im > 0)
 		cout << re << "+" << im << "i" << endl;
 	else cout << re << im << "i" << endl;
 }
+
+//Вычисление модуля комплексного числа
+double Complex::moduleComplex() const {
+	double r = 0;
+	return r = sqrt(pow(re, 2) + pow(im, 2));
+}
+
+//Нахождение аргумента комплексного числа
+	double Complex::argumentComplex() const {
+		double argZ = 0;
+		return argZ = atan(im / re);
+	}
+
+//Перевод комплексного числа в строку
+	string Complex::toString() const {
+		string str1 = to_string(re);
+		string str2 = to_string(im);
+		string str = str1 + str2;
+		return str;
+	}

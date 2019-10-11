@@ -1,5 +1,6 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
+#include <string>
 
 class Complex {
 
@@ -17,12 +18,23 @@ public:
 	//..число
 
 	//На вещественное..
-	Complex operator + (double b);
-	Complex operator * (double b);
-	Complex operator - (double b);
-	Complex operator / (double b);
+	Complex operator + (double b) const;
+	Complex operator * (double b) const;
+	Complex operator - (double b) const;
+	Complex operator / (double b) const;
 	//..число
-	void display();
+
+	//Вывод в консоль
+	void display() const;
+
+	//Вычисление модуля комплексного числа
+	double moduleComplex() const;
+
+	//Нахождение аргумента комплексного числа
+	double argumentComplex() const;
+
+	//Перевод комплексного числа в строку
+	std::string toString() const;
 };
 
 #endif

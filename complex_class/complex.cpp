@@ -77,10 +77,13 @@ Complex::Complex(float r, float i)
 
 	//деление на вещественное число
 	Complex Complex::operator / (double b) const {
-		Complex c;
-		c.re = (re * b) / (b * b);
-		c.im = (b * im) / (b * b);
-		return c;
+		if (b == 0)
+			throw - 1; else {
+			Complex c;
+			c.re = (re * b) / (b * b);
+			c.im = (b * im) / (b * b);
+			return c;
+		}
 	}
 
 //Вывод в консоль
@@ -92,8 +95,8 @@ void Complex::display() const {
 
 //Вычисление модуля комплексного числа
 double Complex::moduleComplex() const {
-	double r = 0;
-	return r = sqrt(pow(re, 2) + pow(im, 2));
+		double r = 0;
+		return r = sqrt(pow(re, 2) + pow(im, 2));
 }
 
 //Нахождение аргумента комплексного числа
@@ -108,4 +111,10 @@ double Complex::moduleComplex() const {
 		string str2 = to_string(im);
 		string str = str1 + str2;
 		return str;
+	}
+
+	bool Complex::operator ==(const Complex& a) {
+		if ((re == a.re) && (im == a.im))
+			return 1; else
+			return 0;
 	}

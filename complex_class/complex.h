@@ -35,6 +35,9 @@ public:
 
 	//Перевод комплексного числа в строку
 	std::string toString() const;
+
+	//Сравнение двух комплексных чисел
+	bool operator ==(const Complex& a);
 };
 
 #endif

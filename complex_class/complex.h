@@ -38,6 +38,10 @@ public:
 
 	//Сравнение двух комплексных чисел
 	bool operator ==(const Complex& a);
+
+	float GetRe();
+
+	float GetIm();
 };
 
 #endif

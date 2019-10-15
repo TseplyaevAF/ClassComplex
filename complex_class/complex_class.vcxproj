@@ -153,9 +153,11 @@
   <ItemGroup>
     <ClCompile Include="complex.cpp" />
     <ClCompile Include="complex_class.cpp" />
+    <ClCompile Include="work_file.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="complex.h" />
+    <ClInclude Include="work_file.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

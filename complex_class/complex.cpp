@@ -3,6 +3,14 @@
 
 using namespace std;
 
+float Complex::GetRe(){
+	return re;
+}
+
+float Complex::GetIm() {
+	return im;
+}
+
 //конструктор с нач. значениями
 Complex::Complex() {
 	re = 1;
@@ -107,12 +115,16 @@ double Complex::moduleComplex() const {
 
 //Перевод комплексного числа в строку
 	string Complex::toString() const {
+		string str;
 		string str1 = to_string(re);
 		string str2 = to_string(im);
-		string str = str1 + str2;
+		if (im < 0)
+		str = str1 + str2 + "i"; else
+			str = str1 + "+" + str2 + "i";
 		return str;
 	}
 
+	//Оператор сравнения комплексных чисел
 	bool Complex::operator ==(const Complex& a) {
 		if ((re == a.re) && (im == a.im))
 			return 1; else

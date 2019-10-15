@@ -35,11 +35,11 @@ unsigned number_of_lines(std::string filename, unsigned sum) {
 //Загрузка состояний объектов из файла
 std::vector<Complex> read_file(std::string filename) {
 	float re, im;
-	//int i = 0; float number; unsigned sum = 0;
-	//sum = number_of_lines(filename, sum);
+	int i = 0; float number; unsigned sum = 0;
+	sum = number_of_lines(filename, sum);
 	std::vector <Complex> v;
 	std::ifstream in(filename);
-	while (!in.eof()) {
+	for (unsigned i = 1; i <= sum-1; i++) {
 		in >> re >> im;
 		Complex a(re, im);
 		v.push_back(a);

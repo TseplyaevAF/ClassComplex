@@ -8,9 +8,12 @@ class Complex {
 
 public:
 
+	//Конструктор по умолчанию
 	Complex();
+	//Конструктор преобразования
 	Complex(float r, float i);
-	// На комплексное..
+
+	//На комплексное..
 	Complex operator + ( const Complex& b);
 	Complex operator * (const Complex& b);
 	Complex operator - (const Complex& b);
@@ -36,12 +39,21 @@ public:
 	//Перевод комплексного числа в строку
 	std::string toString() const;
 
-	//Сравнение двух комплексных чисел
-	bool operator ==(const Complex& a);
+	//Операции сравнения..
+	bool operator == (const Complex& a);
+	bool operator <= (const Complex& a);
+	bool operator >= (const Complex& a);
+	bool operator != (const Complex& a);
+	bool operator < (const Complex& a);
+	bool operator > (const Complex& a);
+	//.. над комплексными числами
 
-	float GetRe();
 
-	float GetIm();
+	// Геттер для поля re
+	float GetRe() const;
+
+	// Геттер для поля im
+	float GetIm() const;
 };
 
 #endif

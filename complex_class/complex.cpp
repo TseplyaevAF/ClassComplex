@@ -3,21 +3,21 @@
 
 using namespace std;
 
-float Complex::GetRe(){
+float Complex::GetRe() const {
 	return re;
 }
 
-float Complex::GetIm() {
+float Complex::GetIm() const {
 	return im;
 }
 
-//конструктор с нач. значениями
+//конструктор по умолчанию
 Complex::Complex() {
 	re = 1;
 	im = 2;
 }
 
-//конструктор по умолчанию
+//конструктор преобразования
 Complex::Complex(float r, float i)
 {
 	re = r;
@@ -127,6 +127,30 @@ double Complex::moduleComplex() const {
 	//Оператор сравнения комплексных чисел
 	bool Complex::operator ==(const Complex& a) {
 		if ((re == a.re) && (im == a.im))
-			return 1; else
-			return 0;
+			return 1; else return 0;
+	}
+
+	bool Complex::operator <=(const Complex& a) {
+		if ((re <= a.re) && (im <= a.im))
+			return 1; else return 0;
+	}
+
+	bool Complex::operator >=(const Complex& a) {
+		if ((re >= a.re) && (im >= a.im))
+			return 1; else return 0;
+	}
+
+	bool Complex::operator !=(const Complex& a) {
+		if ((re != a.re) && (im != a.im))
+			return 1; else return 0;
+	}
+
+	bool Complex::operator <(const Complex& a) {
+		if ((re < a.re) && (im < a.im))
+			return 1; else return 0;
+	}
+
+	bool Complex::operator >(const Complex& a) {
+		if ((re > a.re) && (im > a.im))
+			return 1; else return 0;
 	}

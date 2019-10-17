@@ -6,8 +6,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
 	double x = 4;
 
 	setlocale(0, "RUS");
@@ -28,10 +27,9 @@ int main()
 		c = a / b;
 		cout << "Результат деления:";
 		c.display();
-	}
-	catch (int e) {
+	} catch (int e) {
 		if (e == -1)
-			cout << "Неправильный аргумент";
+			cout << "Знаменатель равен нулю!";
 	}
 
 	c = a + x;//сложение c вещественным
@@ -39,10 +37,9 @@ int main()
 	c = a * x;//умножение на вещественное
 	try {
 		c = a / x;// деление на вещественное
-	}
-	catch (int e) {
+	} catch (int e) {
 		if (e == -1)
-			cout << "Неправильный аргумент";
+			cout << "Знаменатель равен нулю!";
 	}
 
 	double r = a.moduleComplex();//вычислить модуль комплексного числа
@@ -53,31 +50,24 @@ int main()
 
 	bool result = (a == b); //Сравниваем два комплексных чисел
 
-	if (result) cout << "числа равны"; else cout << "числа не равны";
+	vector <Complex> elArray; //Объявление массива из объектов
+	unsigned n = 3; //Размер массива
 
-	vector <Complex> elArray;
-	unsigned n = 3;
-	float re, im;
-
-	//Массив из объектов класса
-	for (unsigned i = 0; i < n; i++)
-	{
-		re = rand() % 24 - 12;
-		im = rand() % 40 - 9;
-		Complex num(re, im);
+	// Добавление объектов в динамический массив
+	for (unsigned i = 0; i < n; i++) {
+		Complex num(rand() % 24 - 12, rand() % 24 - 12);
 		elArray.push_back(num);
 	}
-
-	//выделить дин. память
-	//Complex* t = new Complex[10];
-
-	//массив из указателей
-	/*vector<Complex*> v;
-	v.resize(5);*/
 
 	string filename = "complex.txt";
 	object2file(a, filename, n); //Запись в файл
 	elArray = read_file(filename); //Загрузка из файла
+
+	Complex* d = memoArray(n);
+	d = initArray(n, d);
+	delete[] d;
+
+	system("pause");
 
 	return 0;
 }

@@ -47,3 +47,18 @@ std::vector<Complex> read_file(std::string filename) {
 	in.close();
 	return v;
 }
+
+//Выделение памяти под массив объектов
+Complex* memoArray(unsigned n) {
+	Complex* complexNum = new Complex[n];
+	return complexNum;
+}
+
+//Инициализация массива объектов
+Complex* initArray(unsigned n, Complex* complexNum) {
+	for (unsigned i = 0; i < n; i++)
+	{
+		complexNum[i] = Complex(i, 2 * i);
+	}
+	return complexNum;
+};

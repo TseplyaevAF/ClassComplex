@@ -42,9 +42,9 @@ int main() {
 			cout << "Знаменатель равен нулю!";
 	}
 
-	double r = a.moduleComplex();//вычислить модуль комплексного числа
+	double r = a.abs();//вычислить модуль комплексного числа
 
-	double arg = a.argumentComplex();//найти аргумент комплексного числа
+	double arg = a.arg();//найти аргумент комплексного числа
 
 	string str = b.toString();//число в строку
 

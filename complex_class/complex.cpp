@@ -3,11 +3,11 @@
 
 using namespace std;
 
-float Complex::GetRe() const {
+float Complex::getRe() const {
 	return re;
 }
 
-float Complex::GetIm() const {
+float Complex::getIm() const {
 	return im;
 }
 
@@ -25,7 +25,7 @@ Complex::Complex(float r, float i)
 }
 
 //сложение комплексных
-	Complex Complex::operator + (const Complex& b) {
+	Complex Complex::operator + (const Complex& b) const {
 	Complex result;
 	result.im = this->im + b.im;
 	result.re = this->re + b.re;
@@ -33,7 +33,7 @@ Complex::Complex(float r, float i)
 }
 
 //вычитание комплексных
-	Complex Complex::operator - (const Complex& b) {
+	Complex Complex::operator - (const Complex& b) const {
 	Complex result;
 	result.im = this->im - b.im;
 	result.re = this->re - b.re;
@@ -41,7 +41,7 @@ Complex::Complex(float r, float i)
 }
 
 //умножение комплексных
-	Complex Complex::operator * (const Complex& b) {
+	Complex Complex::operator * (const Complex& b) const {
 	Complex result;
 	result.re = re * b.re - im * b.im;
 	result.im = b.im * re + im * b.re;
@@ -49,9 +49,9 @@ Complex::Complex(float r, float i)
 }
 
 //деление комплексных
-	Complex Complex::operator / (const Complex& b) {
+	Complex Complex::operator / (const Complex& b) const {
 		if ((b.im == 0) && (b.re == 0))
-			throw -1; else {
+			throw ZeroDiv; else {
 			Complex result;
 			result.re = (re * b.re + im * b.im) / (b.re * b.re + b.im * b.im);
 			result.im = (b.re * im - re * b.im) / (b.re * b.re + b.im * b.im);
@@ -102,13 +102,13 @@ void Complex::display() const {
 }
 
 //Вычисление модуля комплексного числа
-double Complex::moduleComplex() const {
+double Complex::abs() const {
 		double r = 0;
 		return r = sqrt(pow(re, 2) + pow(im, 2));
 }
 
 //Нахождение аргумента комплексного числа
-	double Complex::argumentComplex() const {
+	double Complex::arg() const {
 		double argZ = 0;
 		return argZ = atan(im / re);
 	}

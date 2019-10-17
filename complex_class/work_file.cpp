@@ -11,10 +11,10 @@ void object2file(const Complex& a, std::string filename, unsigned n) {
 		re = rand() % 24 - 12;
 		im = rand() % 40 - 9;
 		Complex a(re, im);
-		out << a.GetRe();
-		if (a.GetIm() > 0)
+		out << a.getRe();
+		if (a.getIm() > 0)
 			out << "+";
-		out << a.GetIm() << std::endl;
+		out << a.getIm() << std::endl;
 		/*str = a.toString();//число в строку
 		out << str << std::endl;*/
 	}

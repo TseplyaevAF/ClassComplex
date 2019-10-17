@@ -2,11 +2,13 @@
 #define COMPLEX_H
 #include <string>
 
+// Комплексное число
 class Complex {
 
 	float re, im;
 
 public:
+	static const short ZeroDiv = -1;
 
 	//Конструктор по умолчанию
 	Complex();
@@ -14,10 +16,10 @@ public:
 	Complex(float r, float i);
 
 	//На комплексное..
-	Complex operator + ( const Complex& b);
-	Complex operator * (const Complex& b);
-	Complex operator - (const Complex& b);
-	Complex operator / (const Complex& b);
+	Complex operator + ( const Complex& b) const;
+	Complex operator * (const Complex& b) const;
+	Complex operator - (const Complex& b) const;
+	Complex operator / (const Complex& b) const;
 	//..число
 
 	//На вещественное..
@@ -31,10 +33,10 @@ public:
 	void display() const;
 
 	//Вычисление модуля комплексного числа
-	double moduleComplex() const;
+	double abs() const;
 
 	//Нахождение аргумента комплексного числа
-	double argumentComplex() const;
+	double arg() const;
 
 	//Перевод комплексного числа в строку
 	std::string toString() const;
@@ -50,10 +52,10 @@ public:
 
 
 	// Геттер для поля re
-	float GetRe() const;
+	float getRe() const;
 
 	// Геттер для поля im
-	float GetIm() const;
+	float getIm() const;
 };
 
 #endif

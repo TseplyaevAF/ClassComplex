@@ -28,7 +28,7 @@ int main() {
 		cout << "Результат деления:";
 		c.display();
 	} catch (int e) {
-		if (e == -1)
+		if (e == Complex::ZeroDiv)
 			cout << "Знаменатель равен нулю!";
 	}
 
@@ -38,7 +38,7 @@ int main() {
 	try {
 		c = a / x;// деление на вещественное
 	} catch (int e) {
-		if (e == -1)
+		if (e == Complex::ZeroDiv)
 			cout << "Знаменатель равен нулю!";
 	}
 
@@ -66,6 +66,21 @@ int main() {
 	Complex* d = memoArray(n);
 	d = initArray(n, d);
 	delete[] d;
+
+	cout << endl;
+
+	// Массив указателей на объекты класса
+	vector<Complex*> mass;
+	for (unsigned i = 0; i < n; i++) {
+		Complex* p = new Complex(2*i, i);
+		mass.push_back(p);
+		p->display();
+	}
+
+	//Очищение памяти
+	for (unsigned i = 0; i < mass.size(); i++) {
+		delete mass[i];
+	}
 
 	system("pause");
 

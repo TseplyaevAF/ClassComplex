@@ -3,7 +3,7 @@
 #include <iostream>
 
 //Запись состояний объектов в файл
-void object2file(const Complex& a, std::string filename, unsigned n) {
+void object2file(std::string filename, unsigned n) {
 	std::ofstream out(filename);
 	float re, im; std::string str;
 	for (int i = 0; i < n; i++)

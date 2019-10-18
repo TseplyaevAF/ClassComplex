@@ -3,7 +3,7 @@
 #include "vector"
 
 //Запись состояний объектов в файл
-void object2file(const Complex& a, std::string filename, unsigned n);
+void object2file(std::string filename, unsigned n);
 
 //Загрузка состояний объектов из файла
 std::vector<Complex> read_file(std::string filename);

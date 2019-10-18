@@ -60,7 +60,7 @@ int main() {
 	}
 
 	string filename = "complex.txt";
-	object2file(a, filename, n); //Запись в файл
+	object2file(filename, n); //Запись в файл
 	elArray = read_file(filename); //Загрузка из файла
 
 	Complex* d = memoArray(n);
